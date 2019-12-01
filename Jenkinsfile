@@ -8,11 +8,6 @@ pipeline {
                             sh 'apt-get install -y nodejs'
                     }
                 }
-                stage('node-modules'){
-                    steps{
-                            sh 'npm install'
-                    }
-                }
                 stage('Testing'){
                     steps{
                             sh 'npm test'
