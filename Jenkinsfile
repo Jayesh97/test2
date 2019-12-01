@@ -5,7 +5,8 @@ pipeline {
                 //Installing dependencies
                 stage('checkout'){
                     steps{
-			                sh 'apt-get install -y nodejs'
+                            sh 'curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -'
+                            sh 'apt-get install -y nodejs'
                             sh 'apt-get install npm'
                             sh 'npm install'
                     }
