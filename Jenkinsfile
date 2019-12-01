@@ -6,7 +6,7 @@ pipeline {
                 stage('checkout'){
                     steps{
                             sh 'apt-get install -y nodejs'
-                            sh 'sudo npm install'
+                            sh 'ls'
                     }
                 }
                 //This stage performs unittest
