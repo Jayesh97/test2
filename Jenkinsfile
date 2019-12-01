@@ -8,7 +8,11 @@ pipeline {
                             sh 'apt-get install -y nodejs'
                     }
                 }
-                //This stage performs unittest
+                stage('checkout'){
+                    steps{
+                            sh 'npm install'
+                    }
+                }
                 stage('Testing'){
                     steps{
                             sh 'npm test'
