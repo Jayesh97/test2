@@ -2,7 +2,7 @@ pipeline {
     //Agent can also be a docker 
     agent any 
  
-    tools {nodejs "node"}
+    tools {nodejs "recent_node"}
  
     stages{
         //Installing dependencies
