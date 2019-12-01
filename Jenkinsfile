@@ -1,17 +1,21 @@
 pipeline {
     //Agent can also be a docker 
     agent any 
-            stages{
-                //Installing dependencies
-                stage('checkout'){
-                    steps{
-                            sh 'apt-get install -y nodejs'
-                    }
-                }
-                stage('Testing'){
-                    steps{
-                            sh 'npm test'
-                    }
-                }
-            }     
+ 
+    tools {nodejs "node"}
+ 
+    stages{
+        //Installing dependencies
+        stage('checkout'){
+            steps{
+                    sh 'node -v'
+                    sh 'npm -v'
+            }
+        }
+        stage('Testing'){
+            steps{
+                    sh 'npm test'
+            }
+        }
+    }     
 }
