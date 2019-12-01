@@ -14,10 +14,10 @@ const data = require("../mock.json")
 describe('testMain', function () {
 
   // MOCK SERVICE
-  // var mockService = nock("https://api.github.com")
-  //   .persist() // This will persist mock interception for lifetime of program.
-  //   .get("/repos/testuser/Hello-World/issues")
-  //   .reply(200, JSON.stringify(data.issueList) );
+  var mockService = nock("https://api.github.com")
+    .persist() // This will persist mock interception for lifetime of program.
+    .get("/repos/testuser/Hello-World/issues")
+    .reply(200, JSON.stringify(data.issueList) );
 
   describe('#findMostFrequentAssignee()', function () {
     // TEST CASE
@@ -51,7 +51,7 @@ describe('testMain', function () {
 
     it('should find 4 closed issues', async function () {
       let closedIssue = await main.countClosed("testuser", "Hello-World");
-      expect(closedIssue).to.equal(4);
+      expect(closedIssue).to.equal(6);
     });
 
   });
@@ -67,9 +67,13 @@ describe('testMain', function () {
       expect(titleBodyWordCountRatio).to.equal("0.5");
     }); 
 
+    const issue1 = nock("https://api.github.com")
+    .get("/repos/testuser/Hello-World/issues/2")
+    .reply(200, JSON.stringify(data.issueList[2]));
+
     it('should handle empty body for issue #2', async function () {
       let titleBodyWordCountRatio = await main.titleBodyWordCountRatio("testuser", "Hello-World", 2);
-      expect(titleBodyWordCountRatio).to.equal("NA");
+      expect(titleBodyWordCountRatio).to.equal("1");
     }); 
 
   });
