@@ -8,7 +8,7 @@ pipeline {
                             sh 'apt-get install -y nodejs'
                     }
                 }
-                stage('checkout'){
+                stage('node-modules'){
                     steps{
                             sh 'npm install'
                     }
