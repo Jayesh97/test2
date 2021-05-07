@@ -12,10 +12,10 @@
     "chai": "^4.1.2",
     "mocha": "^6.2.1",
     "nock": "^11.1.0",
-    "underscore": "^1.6.0"
+    "underscore": "^1.12.1"
   },
   "dependencies": {
     "got": "^9.6.0",
-    "underscore": "^1.8.3"
+    "underscore": "^1.12.1"
   }
 }
